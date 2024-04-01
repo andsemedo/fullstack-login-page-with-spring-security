@@ -52,7 +52,7 @@ main {
 
       gap: 20px;
       width: 100%;
-      
+
       font-size: 14px;
       font-weight: 400;
       color: $gray-bg;
@@ -75,6 +75,11 @@ main {
       background: transparent;
       padding: 12px 24px;
       cursor: pointer;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
 
       &.btn-primary {
         background-color: $primary-color;
