@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  postgres_login_auth:
+    container_name: login_auth
+    image: postgres:15
+    ports:
+      - "5445:5432"
+    environment:
+      POSTGRES_DB: db_login_auth
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - login_auth_data:/var/lib/postgresql/postgres_login_auth
+
+  pgadmin_login_auth:
+    container_name: pg_login_auth
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8175:80"
+
+volumes:
+  login_auth_data:
